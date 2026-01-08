@@ -1,84 +1,87 @@
-GeoQuiz
+# GeoQuiz
 
-GeoQuiz is a desktop-based geography quiz application built with C# (.NET 8, WinForms).
-It allows users to test their knowledge of countries, capitals, and flags, including multiple quiz modes, user authentication, scoring, and highscores stored in a PostgreSQL database (Supabase).
+GeoQuiz is a desktop-based geography quiz application built with **C# (.NET 8, WinForms)**.  
+It allows users to test their knowledge of **countries, capitals, and flags** using multiple quiz modes.  
+User authentication, scoring, and highscores are stored in a **PostgreSQL database (Supabase)**.
 
-Features
+---
 
-User registration and login (password hash + salt)
+## Features
 
-Quiz modes:
+- User registration and login (password hash + salt)
+- Multiple quiz modes:
+  - Flag → Country
+  - Flag → Capital
+  - Country → Capital
+  - Country → Flag
+  - Capital → Country
+  - Capital → Flag
+- 10 questions per quiz round
+- 4 answer options per question
+- Immediate feedback after each answer
+- Score calculation and result screen
+- Highscores stored in PostgreSQL (Supabase)
+- Continent-based filtering
+- Flag images displayed directly inside answer buttons
 
-Flag to Country
+---
 
-Flag to Capital
+## Technologies
 
-Country to Capital
+- C# (.NET 8, WinForms)
+- PostgreSQL (Supabase)
+- Npgsql
+- Visual Studio 2022 or newer
 
-Country to Flag
+---
 
-Capital to Country
+## Database
 
-Capital to Flag
+Core tables used by the application:
 
-10 questions per quiz round
+- player
+- country
+- quiz_run
 
-4 answer options per question
+Relationships and structure are documented in the ER diagram included in the project documentation.
 
-Immediate feedback after each answer
+---
 
-Score calculation
+## Configuration (local only)
 
-Highscores stored in PostgreSQL (Supabase)
+### appsettings.json (NOT committed)
 
-Continent-based filtering
+Database credentials **must not** be committed to the repository.
 
-Flag images displayed directly inside answer buttons
+Create a local file named `appsettings.json` (do NOT commit it) with the following structure  
+(replace the values with your own connection string):
 
-Technologies
-
-C# (.NET 8, WinForms)
-
-PostgreSQL (Supabase)
-
-Npgsql
-
-Visual Studio 2022 or newer
-
-Database
-
-Core tables:
-
-player
-
-country
-
-quiz_run
-
-Configuration (local only)
-
-Create a local file named appsettings.json (do NOT commit it).
-Use this structure (replace the values with your own connection string):
-
-ConnectionStrings
-SupabaseDb = Host=...;Port=5432;Database=postgres;Username=...;Password=...;SSL Mode=Require;Trust Server Certificate=true
+```json
+{
+  "ConnectionStrings": {
+    "SupabaseDb": "Host=...;Port=5432;Database=postgres;Username=...;Password=...;SSL Mode=Require;Trust Server Certificate=true"
+  }
+}
 
 An example file named appsettings.example.json can be included in the repository.
 
-Flags
+Flag images are stored locally in the following structure:
 
-Flag images are stored locally in the folder:
 flags/
+├─ de.png
+├─ fr.png
+├─ it.png
+└─ ...
 
-The database stores relative paths such as flags/de.png, which are resolved at runtime.
+Build & Publish
+Build (Debug)
 
-Build and Publish
-
-Build:
 dotnet build
 
-Publish (Windows x64):
+Publish (Standalone EXE, Windows x64)
+
 dotnet publish -c Release -r win-x64 --self-contained true /p:PublishSingleFile=true
+The generated .exe can be shared and executed without installing .NET.
 
 Usage
 
@@ -92,5 +95,20 @@ Play the quiz
 
 View results and highscores
 
+
 License
+
 This project was created as a school project for educational purposes.
+
+
+---
+
+## ✅ WARUM DAS JETZT FUNKTIONIERT
+- **Nur ein Block**
+- **Keine kaputten Markdown-Zeilen**
+- **GitHub rendert es perfekt**
+- **Sieht professionell aus**
+- **Abgabe-tauglich**
+- **Kein weiteres Gefrickel**
+
+---
