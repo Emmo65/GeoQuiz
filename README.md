@@ -101,14 +101,4 @@ License
 This project was created as a school project for educational purposes.
 
 
----
 
-## ✅ WARUM DAS JETZT FUNKTIONIERT
-- **Nur ein Block**
-- **Keine kaputten Markdown-Zeilen**
-- **GitHub rendert es perfekt**
-- **Sieht professionell aus**
-- **Abgabe-tauglich**
-- **Kein weiteres Gefrickel**
-
----
