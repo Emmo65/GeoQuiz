@@ -1,115 +1,92 @@
-# GeoQuiz
+GeoQuiz
 
-GeoQuiz is a desktop-based geography quiz application built with **C# (.NET 8, WinForms)**.  
-It allows users to test their knowledge of **countries, capitals, and flags**, with multiple quiz modes, user accounts, scoring, and highscores stored in a PostgreSQL database (Supabase).
+GeoQuiz is a desktop-based geography quiz application built with C# (.NET 8, WinForms).
+It allows users to test their knowledge of countries, capitals, and flags, including multiple quiz modes, user authentication, scoring, and highscores stored in a PostgreSQL database (Supabase).
 
----
+Features
 
-## Features
+User registration and login (password hash + salt)
 
-- User registration & login  
-  - Secure password handling (hash + salt)
-- Multiple quiz modes:
-  - Flag → Country
-  - Flag → Capital
-  - Country → Capital
-  - Country → Flag
-  - Capital → Country
-  - Capital → Flag
-- 10 questions per quiz round
-- 4 answer options per question
-- Immediate feedback (correct / wrong)
-- Score calculation
-- Highscore list stored in database
-- Continent-based filtering
-- Flag images displayed directly inside answer buttons
+Quiz modes:
 
----
+Flag to Country
 
-## Technologies
+Flag to Capital
 
-- **C# / .NET 8 (WinForms)**
-- **PostgreSQL (Supabase)**
-- **Npgsql**
-- Visual Studio 2022+
+Country to Capital
 
----
+Country to Flag
 
-## Project Structure (Short Overview)
+Capital to Country
 
-- `Forms`
-  - `LoginForm`
-  - `SetupForm`
-  - `QuizForm`
-  - `ResultForm`
-  - `HighscoreForm`
-- `Data`
-  - Repositories (Country, Player, QuizRun)
-- `Logic`
-  - QuizEngine
-- `Models`
-  - Country, Player, QuizQuestion, QuizSettings
-- `Security`
-  - PasswordHasher
+Capital to Flag
 
----
+10 questions per quiz round
 
-## Database
+4 answer options per question
 
-The application uses a PostgreSQL database with (among others) the following tables:
+Immediate feedback after each answer
 
-- `player`
-- `country`
-- `quiz_run`
+Score calculation
 
-Relationships and structure are documented in the ER diagram provided in the project documentation.
+Highscores stored in PostgreSQL (Supabase)
 
----
+Continent-based filtering
 
-## Configuration
+Flag images displayed directly inside answer buttons
 
-### appsettings.json (NOT committed)
+Technologies
 
-Database credentials must **not** be committed.
+C# (.NET 8, WinForms)
 
-Create a local `appsettings.json` file based on the example below:
+PostgreSQL (Supabase)
 
-```json
-{
-  "ConnectionStrings": {
-    "SupabaseDb": "Host=...;Port=5432;Database=postgres;Username=...;Password=...;SSL Mode=Require;Trust Server Certificate=true"
-  }
-}
-An example file (appsettings.example.json) is included in the repository.
+Npgsql
+
+Visual Studio 2022 or newer
+
+Database
+
+Core tables:
+
+player
+
+country
+
+quiz_run
+
+Configuration (local only)
+
+Create a local file named appsettings.json (do NOT commit it).
+Use this structure (replace the values with your own connection string):
+
+ConnectionStrings
+SupabaseDb = Host=...;Port=5432;Database=postgres;Username=...;Password=...;SSL Mode=Require;Trust Server Certificate=true
+
+An example file named appsettings.example.json can be included in the repository.
 
 Flags
-Flag images are stored locally:
 
-
+Flag images are stored locally in the folder:
 flags/
- ├─ de.png
- ├─ fr.png
- ├─ it.png
- └─ ...
-The database stores relative paths (e.g. flags/de.png), which are resolved at runtime.
 
-Build & Publish
-Build (Debug)
+The database stores relative paths such as flags/de.png, which are resolved at runtime.
 
+Build and Publish
 
+Build:
 dotnet build
-Publish (Standalone EXE, Windows x64)
-bash
-Code kopieren
+
+Publish (Windows x64):
 dotnet publish -c Release -r win-x64 --self-contained true /p:PublishSingleFile=true
-The generated .exe can be shared and run without installing .NET.
 
 Usage
+
 Start the application
 
 Register or log in
 
-Configure quiz settings (mode, continent)
+Configure quiz settings (mode and continent)
 
 Play the quiz
 
@@ -117,8 +94,3 @@ View results and highscores
 
 License
 This project was created as a school project for educational purposes.
-
-
-
----
-
