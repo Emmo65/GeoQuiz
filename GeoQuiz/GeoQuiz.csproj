@@ -28,6 +28,7 @@
     <None Remove="Flags\is.png" />
     <None Remove="Flags\it.png" />
     <None Remove="Flags\jp.png" />
+    <None Remove="Flags\lu.png" />
     <None Remove="Flags\nl.png" />
     <None Remove="Flags\no.png" />
     <None Remove="Flags\pl.png" />
@@ -91,6 +92,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Flags\jp.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Flags\lu.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Flags\nl.png">

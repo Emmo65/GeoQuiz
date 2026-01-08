@@ -75,6 +75,7 @@
             rdoCurrent.TabStop = true;
             rdoCurrent.Text = "Nur aktueller Spieler";
             rdoCurrent.UseVisualStyleBackColor = true;
+            rdoCurrent.CheckedChanged += HighscoreForm_Load;
             // 
             // rdoAll
             // 
@@ -86,6 +87,7 @@
             rdoAll.TabStop = true;
             rdoAll.Text = "Alle Spieler";
             rdoAll.UseVisualStyleBackColor = true;
+            rdoAll.CheckedChanged += HighscoreForm_Load;
             // 
             // gridHighscores
             // 
