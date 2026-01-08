@@ -1,0 +1,7 @@
+<Solution>
+  <Folder Name="/Projektmappenelemente/">
+    <File Path="GeoQuiz/appsettings.json" />
+    <File Path="GeoQuiz/DatabaseConfig.cs" />
+  </Folder>
+  <Project Path="GeoQuiz/GeoQuiz.csproj" />
+</Solution>
