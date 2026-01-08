@@ -24,18 +24,7 @@ Flaggen liegen im Ordner `flags/` und werden über `flag_path` (z.B. `flags/de.p
 
 ## Publish
 ```bash
-dotnet publish -c Release -r win-x64 --self-contained true /p:PublishSingleFile=true
-
----
-
-## 3) `appsettings.example.json` anlegen (damit dein Repo vollständig ist)
-1) Rechtsklick → Neu → Textdokument
-2) Name: **appsettings.example.json**
-3) Inhalt:
-
-```json
-{
-  "ConnectionStrings": {
-    "SupabaseDb": "Host=...;Port=5432;Database=postgres;Username=...;Password=...;SSL Mode=Require;Trust Server Certificate=true"
-  }
-}
+```md
+### Konfigurationsdatei
+- `appsettings.json` **nicht committen** (enthält Zugangsdaten)
+- Vorlage: `appsettings.example.json`
